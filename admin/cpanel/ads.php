@@ -34,7 +34,7 @@ include 'header.php';
               if ($_SESSION['role'] == 'user') {
                 $id='WHERE user_id ="'.$_SESSION['id'].'"';
               }
-              
+
 
               $sql = 'SELECT * FROM ads '.$id.'';
               $res= mysqli_query($con, $sql);
@@ -51,7 +51,7 @@ include 'header.php';
                       <th>Description</th>
                       <th>Price</th>
                       <th>Date Listed</th>
-                      <th>Delete</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -64,7 +64,8 @@ include 'header.php';
                     $row1= mysqli_fetch_assoc($res1);
 
                     $names=$row1['name'].' '.$row1['surename'];
-
+                    //for view ad
+                    $Vbutton = '<a href="viewad.php?id='.$row['id'].'"  class="text-light btn btn-primary fa fa-eye"><span></span> View</a>';
                     echo '
                     <tr>
                       <td>'.$row['id'].'</td>
@@ -75,6 +76,7 @@ include 'header.php';
                       <td>'.date('M d, Y', strtotime($row['date'])).'</td>
                       <td>
                       <a href="adsdelete.php?id='.$row['id'].'"  class="btn btn-danger"><span></span> Delete</a>
+                      '.$Vbutton.'
                       </td>
                     </tr>
                     ';
