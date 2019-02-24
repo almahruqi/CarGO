@@ -26,8 +26,6 @@ if(isset($_POST['submit']))
                 VALUES('$_SESSION[id]','$car_make', '$car_model','$car_mileage',(select ad_id from ads WHERE date='$date')); ";
     echo $query3 = "INSERT INTO address (city, state, ad_id, user_id)
                   VALUES('$city', '$state',(select ad_id from ads WHERE date='$date'),'$_SESSION[id]'); ";
-
-
     mysqli_query($con, $query);
     mysqli_query($con, $query2);
     mysqli_query($con, $query3);
@@ -54,9 +52,8 @@ include 'header.php';
 <h1>Create Advertisments</h1>
 <hr>
         <!-- /.row -->
-
                         <div class="row">
-                            <div class="col-md-offset-3 col-lg-6">
+                            <div class="col-md-offset-3 col-lg-6 ">
                                 <form method="post" role="form">
                                     <fieldset class="form-group">
                                         <h3 class="font-weight-bold">Ad Name</h3>
@@ -158,6 +155,7 @@ include 'header.php';
                                     <button type="submit" name="submit" class="btn btn-secondary">Submit Button</button>
                                     <button type="reset" class="btn btn-secondary">Reset Button</button>
                                     </form>
+
 
       </div>
       </div>

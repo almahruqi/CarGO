@@ -3,7 +3,23 @@ include '../include/connect.php';
 if ($_SESSION['id'] == '') {
   header('Location: ../login.php');
 }
+if ($_SESSION['role'] == 'user') {
+  header('Location:index.php');
+}
+//change role method
+if (isset($_GET['id'])) {
+   $id =(int)$_GET['id'];
+   if ($id != '') {
+    $sqlR = 'SELECT * FROM ads WHERE ad_id ='.$id.'';
+    $resR= mysqli_query($con, $sqlR);
+    $rowR= mysqli_fetch_assoc($resR);
+    $sqlR='UPDATE ads SET status="approved" WHERE ad_id="'.$id.'"';
+    mysqli_query($con, $sqlR);
+    header('Location:ads.php');
+       }
 
+
+  }
 ?>
 
 <?php
@@ -37,7 +53,7 @@ include 'header.php';
               }
 
 
-              $sql = 'SELECT * FROM ads '.$id.'';
+              $sql = 'SELECT * FROM ads '.$id.'WHERE status="pending" ';
               $res= mysqli_query($con, $sql);
 
               if (mysqli_num_rows($res) > 0)
@@ -66,6 +82,7 @@ include 'header.php';
                     $names=$row1['name'].' '.$row1['surename'];
                     //for view ad
                     $Vbutton = '<a href="viewad.php?id='.$row['ad_id'].'"  class="text-light btn btn-primary fa fa-eye"><span></span> View</a>';
+                    $button = '<a href="?id='.$row['ad_id'].'"  class="btn btn-success"><span></span> Approve</a>';
                     echo '
                     <tr>
                       <td >'.$row['ad_id'].'</td>
@@ -75,7 +92,7 @@ include 'header.php';
                       <td>'.$row['status'].'</td>
                       <td>
                       <a href="adsdelete.php?id='.$row['ad_id'].'"  class="btn btn-danger"><span></span> Delete</a>
-                      '.$Vbutton.'
+                      '.$Vbutton.' '.$button.'
                       </td>
                     </tr>
                     ';

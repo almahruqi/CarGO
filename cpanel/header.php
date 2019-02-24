@@ -122,6 +122,11 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>View Users</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pending.php">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>View Pending Ads</span></a>
+      </li>
       ';
       }
 
