@@ -24,12 +24,18 @@ include 'header.php';
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Image Upload</title>
 </head>
 
 <body>
+  <h2>Rules of uploading image</h2>
+  <ul class="list-group-item">
+  <li class="list-group-item list-group-item-success">Image can be Only PNG and JPEG.</li>
+  <li class="list-group-item list-group-item-success">Image CANNOT exceeds 5MB!</li>
+  <li class="list-group-item list-group-item-success">Image should be clear and related to the Ad</li>
+</ul>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" >
 <input type="file" name="file_img" />
 <input type="submit" name="btn_upload" value="Upload">
 </form>
@@ -44,8 +50,9 @@ if ($id != '') {
   	$filetype = $_FILES["file_img"]["type"];
   	$filepath = "../photo/".$filename;
     $file_extension = pathinfo($_FILES["file_img"]["name"], PATHINFO_EXTENSION);
+    $allowed_image_extension = array("png","jpg","jpeg");
 
-    // Validate file input to check if is not empty
+    // Validation (https://phppot.com/php/php-image-upload-with-size-type-dimension-validation/)
     if (!file_exists($_FILES["file_img"]["tmp_name"])) {
       echo '
       <div class="alert_loging">
@@ -55,10 +62,32 @@ if ($id != '') {
         </div>
       ';
       }
+    else if(! in_array($file_extension, $allowed_image_extension))
+    {
+      echo '
+      <div class="alert_loging">
+        <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> Only PNG and JPEG images are allowed!
+        </div>
+      ';
+    }
+    else if(($_FILES["file_img"]["size"] > 5000000))
+    {
+      echo '
+      <div class="alert_loging">
+        <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> Image size exceeds 5MB!
+        </div>
+      ';
+    }
   	else {
+
     move_uploaded_file($filetmp,$filepath);
   	$sql = "INSERT INTO upload_img (img_name,img_path,img_type,ad_id) VALUES ('$filename','$filepath','$filetype','$id')";
   	mysqli_query($con, $sql);
+
     header('Location: ads.php');}
   }
 }
