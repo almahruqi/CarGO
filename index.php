@@ -81,7 +81,7 @@ include('include/connect.php');
 
         <ul class="row first" >
           <?php
-          $sql = "SELECT * FROM ads ORDER BY id DESC";
+          $sql = 'SELECT * FROM ads '.$id.'WHERE status="approved" ';
           $res= mysqli_query($con, $sql);
           if (mysqli_num_rows($res) > 0) {
             echo '

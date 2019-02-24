@@ -44,7 +44,7 @@ include 'header.php';
                   <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
                       <strong>YOU DONNOT HAVE ACCESS!</strong>
                   </div>
-                ';;
+                ';
                 header('Location: ../login.php');
               }
 
