@@ -1,5 +1,5 @@
 ![alt text](https://i.imgur.com/RBc6Tvu.png)
-# CarGO Overview
+# CarGo Overview
 CarGo is a senior project for my computer science major. CarGo is classified advertisment website for cars.
 The website will have two type of users: Admin and User.
 ## Features
