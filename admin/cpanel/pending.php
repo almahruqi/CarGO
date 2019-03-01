@@ -3,11 +3,15 @@ include '../include/connect.php';
 if ($_SESSION['id'] == '') {
   header('Location: ../login.php');
 }
-if ($_SESSION['role'] == 'user') {
+elseif ($_SESSION['role'] == 'user') {
   header('Location:index.php');
 }
 //change role method
 if (isset($_GET['id'])) {
+  if ($_SESSION['role'] == 'user') {
+    header('Location:warning.php');
+  }
+  else{
    $id =(int)$_GET['id'];
    if ($id != '') {
     $sqlR = 'SELECT * FROM ads WHERE ad_id ='.$id.'';
@@ -17,6 +21,7 @@ if (isset($_GET['id'])) {
     mysqli_query($con, $sqlR);
     header('Location:ads.php');
        }
+     }
 
 
   }

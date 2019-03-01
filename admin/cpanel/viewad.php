@@ -24,16 +24,25 @@ include 'header.php';
               //To view one advertisments for user and only what user advertise
               $idad =(int)$_GET['id'];
               if ($_SESSION['role'] == 'user') {
-                  $id='WHERE ads.user_id ="'.$_SESSION['id'].'"';
-                  $sql = 'SELECT * FROM ads  INNER JOIN cars ON cars.ad_id="'.$idad.'"
-                   INNER JOIN address ON address.ad_id='.$idad.' '.$id.'';
+                  $id='AND ads.user_id ="'.$_SESSION['id'].'"';
+                  $sql = 'SELECT * FROM ads
+                         INNER JOIN cars ON cars.ad_id=ads.ad_id
+                         INNER JOIN address ON address.ad_id=ads.ad_id
+                         WHERE ads.ad_id = "'.$idad.'" '.$id.'';
                   //$sql = 'SELECT * FROM ads'.$id.' AND ad_id='.$idad.' ';
               }
               //To view Any one advertisment
               else if ($_SESSION['role'] == 'admin') {
+                //
+                // $sql = 'SELECT * FROM ads  JOIN cars ON cars.ad_id="'.$idad.'" AND ads.ad_id="'.$idad.'"
+                //   JOIN address ON address.ad_id="'.$idad.'" ';
+                $sql = 'SELECT * FROM ads
+                       INNER JOIN cars ON cars.ad_id=ads.ad_id
+                       INNER JOIN address ON address.ad_id=ads.ad_id
+                       WHERE ads.ad_id = "'.$idad.'"';
 
-                $sql = 'SELECT * FROM ads INNER JOIN cars ON cars.ad_id="'.$idad.'"
-                 INNER JOIN address ON address.ad_id='.$idad.' ';
+
+
 
 
               }
@@ -72,10 +81,7 @@ include 'header.php';
 
                   ';
                   while ($row =mysqli_fetch_assoc($res)) {
-
-
-
-
+                    $Editbutton = '<a href="edit.php?id='.$row['ad_id'].'"  class="btn btn-secondary"><span></span> Edit</a>';
                     echo '
                     <div class="tab-pane  fade" id="pills-desciption" role="tabpanel" aria-labelledby="pills-desciption-tab">
       								<h3 class="tab-title">Car Description</h3>
@@ -122,8 +128,10 @@ include 'header.php';
               <div class="tab-pane fade" id="pills-action" role="tabpanel" aria-labelledby="pills-action-tab">
 								<h3 class="tab-title">Actions</h3>
 									<tbody>
+
                   <td>
                   <a href="adsdelete.php?id='.$row['ad_id'].'"  class="btn btn-danger"><span></span> Delete</a>
+                  '.$Abutton.'
                   </td>
 
 							</div> ';}

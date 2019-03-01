@@ -65,8 +65,9 @@ include 'header.php';
 
                     $names=$row1['name'].' '.$row1['surename'];
                     //for view ad
-                    $Vbutton = '<a href="viewad.php?id='.$row['ad_id'].'"  class="text-light btn btn-primary fa fa-eye"><span></span> View</a>';
-                    $Abutton = '<a href="upload.php?id='.$row['ad_id'].'"  class="btn btn-info"><span></span> Add a photo</a>';
+                    $Vbutton = '<a href="viewad.php?id='.$row['ad_id'].'"   class="text-light btn btn-primary fa fa-eye"><span></span> View</a>';
+                    $Abutton = '<a href="upload.php?id='.$row['ad_id'].'"   class="btn btn-info"><span></span> Add a photo</a>';
+                    $Editbutton = '<a href="edit.php?id='.$row['ad_id'].'"   class="btn btn-secondary"><span></span> Edit</a>';
                     echo '
                     <tr>
                       <td >'.$row['ad_id'].'</td>
@@ -76,7 +77,7 @@ include 'header.php';
                       <td>'.$row['status'].'</td>
                       <td>
                       <a href="adsdelete.php?id='.$row['ad_id'].'"  class="btn btn-danger"><span></span> Delete</a>
-                      '.$Vbutton.' '.$Abutton.'
+                      '.$Vbutton.' '.$Editbutton.' '.$Abutton.'
                       </td>
                     </tr>
                     ';

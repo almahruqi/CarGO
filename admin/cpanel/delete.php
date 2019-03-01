@@ -1,14 +1,19 @@
 <?php
 include '../include/connect.php';
 if ($_SESSION['id'] == '') {
-  header('Location: ../login.php');
+header('Location: warning.php');
 }
-if ($_SESSION['role'] == 'user') {
-  header('Location:index.php');
+else{
+  header('Location: warning.php');
 }
+
 //delete a user
 if (isset($_GET['id'])) {
    $id =(int)$_GET['id'];
+   if ($_SESSION['role'] == 'user') {
+     header('Location:warning.php');
+   }
+   else{
    if ($id != '') {
     $sqlR = 'SELECT * FROM user WHERE id ='.$id.'';
     $resR= mysqli_query($con, $sqlR);
@@ -31,5 +36,6 @@ if (isset($_GET['id'])) {
 
 
   }
+}
 }
 ?>
