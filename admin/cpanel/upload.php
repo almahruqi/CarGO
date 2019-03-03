@@ -28,23 +28,31 @@ include 'header.php';
 </head>
 
 <body>
+
   <h2>Rules of uploading image</h2>
+
   <ul class="list-group-item">
   <li class="list-group-item list-group-item-success">Image can be Only PNG and JPEG.</li>
   <li class="list-group-item list-group-item-success">Image CANNOT exceeds 5MB!</li>
   <li class="list-group-item list-group-item-success">Image should be clear and related to the Ad</li>
 </ul>
+<div class="container-fluid mt-3 pt-2">
+  <div class="row">
+      <div class="col-md-offset-19 col-lg-11 ">
+        <form action="" method="post" enctype="multipart/form-data" >
+        <input type="file" name="file_img" class="custom-file-input" id="inputGroupFile02">
+        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+      </div>
+       <div class="input-group-append">
+      <input type="submit" name="btn_upload" class="input-group-text" value="Upload">
+        </form>
+        </div>
+      </div>
+    </div>
+    </div>
 
-<form action="" method="post" enctype="multipart/form-data" >
-<input type="file" name="file_img" />
-<input type="submit" name="btn_upload" value="Upload">
-</form>
-<button onclick="goBack()">Go Back</button>
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
+
+
 
 
 <?php
@@ -101,7 +109,11 @@ if ($id != '') {
       }
   	mysqli_query($con, $sql);
 
-    header('Location: ads.php');
+    echo'<div class="alert alert-success" role="alert">
+      Congratulations '.$_SESSION['name'].'! The Images has been successfully uploaded!
+    </div>';
+    echo'
+    <a href="viewad.php?id='.$id.'" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Go to Advertisments</a>';
   }
   }
 }
