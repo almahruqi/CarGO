@@ -32,6 +32,7 @@ include 'header.php';
                          INNER JOIN cars ON cars.ad_id=ads.ad_id
                          INNER JOIN address ON address.ad_id=ads.ad_id
                          WHERE ads.ad_id = "'.$idad.'" '.$id.'';
+                   $sql2='SELECT * FROM upload_img WHERE ad_id="'.$idad.'"';
 
 
               }
@@ -154,11 +155,22 @@ include 'header.php';
               $image=$row2 ['img_name'];
               echo'
                       <td>
-                      <img src="../photo/'.$image.'" width="360" height="150">
+                      <button type="button"  border="0" data-toggle="modal" data-target=".bd-example-modal-xl"><img src="../photo/'.$image.'"width="360" height="150"></button>
+                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                          <img src="../photo/'.$image.'" alt="Responsive image">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
                       </td>';
             }
 
                   echo '
+                  <p class="font-weight-bold">click the image to view in full size.</p>
+
+
                   </div>
                   </tbody>
                   ';
