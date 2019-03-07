@@ -6,11 +6,11 @@ if(isset($_POST['submit']))
   $name = $_POST['name'];
   $surename = $_POST['surename'];
   $email = $_POST['email'];
-  $password = $_POST['password'];
-if ($name !='' && $surename !='' && $email !='' && $password !='')
+  $hashed_password = password_hash($_POST["password"],PASSWORD_DEFAULT);
+if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
 {
   $query = "INSERT INTO user (name, surename, email, password)
-        VALUES('$name', '$surename', '$email', '$password')";
+        VALUES('$name', '$surename', '$email', '$hashed_password')";
   mysqli_query($con, $query);
   header('Location: login.php');
 } else {

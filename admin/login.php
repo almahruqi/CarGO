@@ -8,37 +8,46 @@ if(isset($_POST['submit']))
   $password = $_POST['password'];
 if ($email !='' && $password !='')
 {
-  $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+  $sql = "SELECT * FROM user WHERE email='$email'";
   $res= mysqli_query($con, $sql);
+      if (mysqli_num_rows($res) > 0)
+      {
+         $details = mysqli_fetch_assoc($res);
+        if (password_verify($password, $details['password'])) {
+          $_SESSION['id'] = $details['id'];
+          $_SESSION['name'] = $details['name'];
+          $_SESSION['surename'] = $details['surename'];
+          $_SESSION['email'] = $details['email'];
+          $_SESSION['role'] = $details['role'];
+          header('Location: cpanel/index.php');
+          } else {
+            session_destroy();
+            echo '
+            <div class="alert_loging">
+              <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  <strong>Error!</strong> Your password you entered was incorrect!
+              </div>
+            ';
+          }
+        }
+        else {
+          echo '
+          <div class="alert_loging">
+            <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Error!</strong> The E-mail address or password you entered was incorrect!
+            </div>
+          ';
 
-
-if (mysqli_num_rows($res) > 0)
-{
-  $details = mysqli_fetch_assoc($res);
-  $_SESSION['id'] = $details['id'];
-  $_SESSION['name'] = $details['name'];
-  $_SESSION['surename'] = $details['surename'];
-  $_SESSION['email'] = $details['email'];
-  $_SESSION['role'] = $details['role'];
-  header('Location: cpanel/index.php');
-
-} else {
+        }
+      }
+      else {
   session_destroy();
-  echo '
-  <div class="alert_loging">
-    <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Error!</strong> The E-mail address or password you entered was incorrect!
-    </div>
-  ';
+  echo "Please fill in all fields";}
 
-}
-}
-else {
-  session_destroy();
-  echo "Please fill in all fields";
-}
-}
+    }
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
