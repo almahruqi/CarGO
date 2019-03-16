@@ -43,7 +43,19 @@ include 'header.php';
                                 <td><input type="email" name="email" class="form-control" value='.$row['email'].'></td>
                             </fieldset>
                             <fieldset class="form-group">Password</h3>
-                                <td><input type="password" name="password" class="form-control"></td>
+                                <td>  <input type="password" name="password" class="form-control" placeholder="Password" required="required" id="psw"
+                                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                  <h4><b>Password must contain the following:</b></h4>
+                                  <p><b>lowercase</b> letter</p>
+                                  <p>A <b>capital (uppercase)</b> letter</p>
+                                  <p>A <b>number</b></p>
+                                  <p>Minimum <b>8 characters</b></p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                                </div>
+                                </td>
                             </fieldset>
                             <input type="hidden" name="id" value='.$row['id'].' />
                             <input class="btn btn-primary" name="enter" type="submit" value="Edit">
