@@ -37,6 +37,8 @@ if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
 
   <!-- Custom styles for this template-->
   <link href="assets/css/sb-admin.css" rel="stylesheet">
+  <!-- password checker -->
+
 
 </head>
 
@@ -58,12 +60,25 @@ if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
               <input type="email" name="email" class="form-control" placeholder="E-mail address" required="required">
             </div>
           <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+                  <input type="password" name="password" class="form-control" placeholder="Password" required="required" id="psw"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <h4><b>Password must contain the following:</b></h4>
+                  <p><b>lowercase</b> letter</p>
+                  <p>A <b>capital (uppercase)</b> letter</p>
+                  <p>A <b>number</b></p>
+                  <p>Minimum <b>8 characters</b></p>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
                 </div>
+                </div>
+
           <button type="submit" class="btn btn-primary btn-success btn-block" name="submit">Register</button><br>
           <a class="d-block small mt-3" href="login.php">Login Page</a>
           <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
         </fieldset>
+
         </form>
         </div>
       </div>
@@ -75,6 +90,8 @@ if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
 
   <!-- Core plugin JavaScript-->
   <script src="assets/js/jquery.easing.min.js"></script>
+
+
 
 </body>
 
