@@ -36,6 +36,7 @@ mysqli_query($con, $sql1);
 echo'<div class="alert alert-success" role="alert">
   Congratulations '.$_SESSION['name'].'! Your information has been successfully Updated!
 </div>';
+header("Refresh:3; url=index.php");
 echo'
 <a href="index.php" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Go to HomePage</a>';
 ?>
