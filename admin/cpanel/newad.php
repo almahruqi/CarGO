@@ -92,7 +92,7 @@ include 'header.php';
                               <fieldset class="form-group">
                                   <h3 class="font-weight-bold">city</h3>
                                   <input  name ="city"class="form-control"></input>
-                                    <p class="help-block">Enter the Mileage of the Car</p>
+                                    <p class="help-block">Enter the name of the Car</p>
                               </fieldset>
                               <fieldset class="form-group">
                                   <label for="States" class="font-weight-bold">States</label>
