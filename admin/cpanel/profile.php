@@ -34,10 +34,10 @@ include 'header.php';
                         <div class="col-md-offset-3 col-lg-6 ">
                             <form method="post" role="form" action="save_edit_profile.php" enctype="multipart/form-data" method="post">
                             <fieldset class="form-group">User Name</h3>
-                                <td><input type= "text" name="name" class="form-control" value='.$row['name'].' readonly></td>
+                                <td><input type= "text" name="name" class="form-control" value="'.$row['name'].'" readonly></td>
                             </fieldset>
                             <fieldset class="form-group">User Last Name</h3>
-                                <td><input type= "text" name="lastname" class="form-control" value='.$row['surename'].' readonly></td>
+                                <td><input type= "text" name="lastname" class="form-control" value="'.$row['surename'].'" readonly></td>
                             </fieldset>
                             <fieldset class="form-group">Email Address</h3>
                                 <td><input type="email" name="email" class="form-control" value='.$row['email'].'></td>
