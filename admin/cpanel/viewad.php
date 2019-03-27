@@ -44,7 +44,7 @@ include 'header.php';
                        INNER JOIN cars ON cars.ad_id=ads.ad_id
                        INNER JOIN address ON address.ad_id=ads.ad_id
                        WHERE ads.ad_id = "'.$idad.'"';
-               $sql2='SELECT * FROM upload_img WHERE ad_id="'.$idad.'"';
+                       $sql2='SELECT * FROM upload_img WHERE ad_id="'.$idad.'"';
                      }
 
               else {
@@ -62,6 +62,7 @@ include 'header.php';
 //content
               $res= mysqli_query($con, $sql);
               $res2= mysqli_query($con, $sql2);
+              $res3= mysqli_query($con, $sql2);
               if (mysqli_num_rows($res) > 0)
               {
 
@@ -101,6 +102,7 @@ include 'header.php';
                       <td>'.$row['description'].'</td>
                       </tr>
                       </div>
+                      
 
 							<div class="tab-pane fade" id="pills-specifictatione" role="tabpanel" aria-labelledby="pills-specifictatione-tab">
 								<h3 class="tab-title">Car Specifications</h3>
@@ -150,30 +152,66 @@ include 'header.php';
                   <tbody>';
 
             }
-            while ($row2=mysqli_fetch_array($res2))
+
+            function make_slide_idicators($res2)
             {
-              $image=$row2 ['img_name'];
-              echo'
-                      <td>
-                      <button type="button"  border="0" data-toggle="modal" data-target=".bd-example-modal-xl"><img src="../photo/'.$image.'"width="360" height="150"></button>
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                          <img src="../photo/'.$image.'" alt="Responsive image">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+              $count=0;
+              $output = '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">';
+              while ($row2=mysqli_fetch_array($res2))
+              {
+                if($count == 0)
+                {
+                  $output .='<td>
+
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>';
+                }
+                else {
+                  $output .='<li data-target="#carouselExampleIndicators" data-slide-to="'.$count.'"></li>';
+                }
+                $count = $count+1;
+              }
+              return $output;
+            }
+
+            function make_slides($res3)
+            {
+              $count=0;
+              $output = '</ol>
+              <div class="carousel-inner">';
+              while ($row3=mysqli_fetch_array($res3))
+              {
+                if($count == 0)
+                {
+                  $output .='<div class="carousel-item active">';
+                }
+                else {
+                    $output .='<div class="carousel-item">';
+                }
+                $output .= '<img src="../photo/'.$row3['img_name'].'" class="d-block w-100 height:auto" alt="Car image">
+                </div>';
+                $count = $count+1;
+              }
+
+              return $output;
+            }
+            function nav()
+            {
+              echo '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
                       </div>
-                    </div>
                       </td>';
             }
 
-                  echo '
-                  <p class="font-weight-bold">click the image to view in full size.</p>
-
-
-                  </div>
-                  </tbody>
-                  ';
+            echo make_slide_idicators($res2);
+            echo make_slides($res3);
+            echo nav();
 
                 } else {
 
