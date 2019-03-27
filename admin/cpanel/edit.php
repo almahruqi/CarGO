@@ -70,7 +70,7 @@ include 'header.php';
                             <form method="post" role="form" action="save_edit.php" enctype="multipart/form-data" method="post">
                                 <fieldset class="form-group">
                                     <h3 class="font-weight-bold">Ad Name</h3>
-                                    <td><input type= "text" name="name" class="form-control" value='.$row['name'].'></td>
+                                    <td><input type= "text" name="name" class="form-control" value="'.$row['name'].'" "/></td>
                                     <p class="help-block">Enter the name of Ad</p>
                                 </fieldset>
 
