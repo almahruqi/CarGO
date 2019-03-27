@@ -11,7 +11,7 @@ include('include/connect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Bootstrap Photo Gallery Demo</title>
+    <title>CarGo Demo</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -55,7 +55,7 @@ include('include/connect.php');
         <a class="nav-link" href="login.php">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="register.php">Registation</a>
+        <a class="nav-link" href="register.php">Registration</a>
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,50 +74,16 @@ include('include/connect.php');
         <div class="row" style="text-align:center; border-bottom:1px dashed #ccc;  padding:30px 0 20px 0; margin-bottom:40px;">
             <div class="col-lg-12">
             <h3 style="font-family:'Bree Serif', arial; font-weight:bold; font-size:30px;">
-                <a style="text-decoration:none; color:#666;">Tester of CarGo</a>
-            </h3>
-            <p> View ADS </p>
+                <a style="text-decoration:none; color:#666;">Welcome To CarGo, CarGo will lunch in May 2019</a>
+		            </h3>
+		<a class="text-center" style="text-decoration:none; color:#666;">Our Progress:</a>
+
+		<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">%80</div>
+</div>
+            <p class="text-center"> Please feel free to register in the website and try the control panel! </p>
             </div>
 
-        <ul class="row first" >
-          <?php
-          $sql = 'SELECT * FROM ads '.$id.'WHERE status="approved" ';
-          $res= mysqli_query($con, $sql);
-          if (mysqli_num_rows($res) > 0) {
-            echo '
-              <li>
-              ';
-
-while ($row =mysqli_fetch_assoc($res)) {
-  $sql1 = "SELECT * FROM user WHERE id ='$row[user_id]'";
-  $res1= mysqli_query($con, $sql1);
-  $row1= mysqli_fetch_assoc($res1);
-
-  $names=$row1['name'].' '.$row1['surename'];
-  echo '
-    <p>'.$row[name].'</p>
-    <div class="text">'.$row[description].'<span class="pull-right">Uploaded by:'.$names.'</span</div>
-  ';
-}
-              echo '
-                </li>
-                ';
-
-
-
-
-
-          } else {
-            echo '
-            <li>
-                <p>Sorry there is no ads</p>
-            </li>
-            ';
-          }
-
-           ?>
-
-  </ul>
     </div> <!-- /container -->
   </body>
 </html>
