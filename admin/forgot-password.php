@@ -34,8 +34,8 @@ if(isset($_POST['submit'])&& (!empty($_POST["email"])))
          $m->isSMTP();
          $m->SMTPAuth=true;
          $m->Host='smtp.gmail.com';
-         $m->Username='car.go.csulb@gmail.com';//replace with your email address
-         $m->Password='cargo159+159';//replace with your password
+         $m->Username='@gmail.com';//replace with your email address
+         $m->Password='';//replace with your password
          $m->SMTPSecure='ssl';
          $m->Port=465;
          $m->isHTML();
