@@ -125,13 +125,15 @@ include 'include/connect.php';//make sure you have folder include!
 				</div>
 			</section>
 			<!-- Search option-->
-			<div class="search-1 m-t-sm-40">
+			<div class="search-1 m-t-sm-50">
 				<div class="container">
-					<div class="search-option p-lg-30 p-b-lg-15 p-b-sm-30 p-r-sm-45 p-xs-15">
+					<div class="search-option p-lg-30 p-b-lg-15 p-b-sm-20 p-r-sm-45 p-xs-15">
 						<div class="row">
-							<div class="col-sm-3 col-md-2 col-lg-2 p-r-sm-0">
-						<p> Search</p>
-							</div>
+								    <form action="search.php" method="GET" >
+								        <input type="text" name="query" class="form-control" placeholder="Enter name of the car" />
+												<input class="ht-btn mb-2" type="submit" value="Search" />
+								    </form>
+
 						</div>
 					</div>
 				</div>
