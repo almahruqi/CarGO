@@ -9,10 +9,26 @@ if(isset($_POST['submit']))
   $hashed_password = password_hash($_POST["password"],PASSWORD_DEFAULT);
 if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
 {
-  $query = "INSERT INTO user (name, surename, email, password)
-        VALUES('$name', '$surename', '$email', '$hashed_password')";
-  mysqli_query($con, $query);
-  header('Location: login.php');
+  $sql = "SELECT * FROM user WHERE email='$email'";
+  $res= mysqli_query($con, $sql);
+  if (mysqli_num_rows($res) > 0)
+  {
+    echo'
+    <div class="alert_loging">
+      <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <strong>Error!</strong> The Email Address Already exist!
+          <a href="Login.php">Click here to Login</a>
+      </div>
+    ';
+  }
+  else{
+    echo 'k';
+  // $query = "INSERT INTO user (name, surename, email, password)
+  //       VALUES('$name', '$surename', '$email', '$hashed_password')";
+  // mysqli_query($con, $query);
+  // header('Location: login.php');
+}
 } else {
   echo "Please fill in all fields";
 }
