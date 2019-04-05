@@ -18,7 +18,7 @@ if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
       <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
           <a href="#" class="close" data-dismiss="alert">&times;</a>
           <strong>Error!</strong> The Email Address Already exist!
-          <a href="Login.php">Click here to Login</a>
+          <a href="login.php">Click here to Login</a>
       </div>
     ';
   }
