@@ -170,12 +170,12 @@ if (mysqli_num_rows($res) > 0)
 										<div class="col-lg-12">
 											<!-- Product item -->
 											<div class="product-item hover-img">
-												<a href="#" class="product-img">
+												<a href="car_detail.php?id='.$row['ad_id'].'" class="product-img">
 													<img src="photo/'.$row2['img_name'].'" alt="image">
 												</a>
 												<div class="product-caption">
 													<h4 class="product-name">
-														<a href="#">'.$row['name'].' / <b>used</b></a><span class="f-18"> '.$row['price'].'</span>
+														<a href="car_detail.php?id='.$row['ad_id'].'">'.$row['name'].' / <b>used</b></a><span class="f-18"> '.$row['price'].'</span>
 													</h4>
 												</div>
 												<ul class="absolute-caption">
