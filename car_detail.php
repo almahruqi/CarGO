@@ -205,7 +205,7 @@ function make_slide_idicators($res2)
 										<ul class="product_para-1 p-lg-15 bg-gray-f5 bg1-gray-15">
 											<li><span>Make :</span><?php echo ''.$row['car_make'].'';?></li>
 											<li><span>Model :</span><?php echo ''.$row['car_model'].'';?></li>
-											<li><span>Seller Price :</span><?php echo ''.$row['price'].'';?></li>
+											<li><span>Seller Price :</span><?php echo '$'.$row['price'].'';?></li>
 											<li><span>City :</span><?php echo ''.$row['city'].'';?></li>
 											<li><span>State :</span><?php echo ''.$row['state'].'';?></li>
 											<li><span>Mileage :</span><?php echo ''.$row['car_mileage'].'';?></li>

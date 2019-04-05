@@ -168,7 +168,7 @@ include 'include/connect.php';//make sure you have folder include!
 																<h4 class="product-name">
 																	<a href="car_detail.php?id='.$row['ad_id'].'" class="f-18">'.$row['name'].'</a>
 																</h4>
-																<b class="product-price color-red">'.$row['price'].'</b>
+																<b class="product-price color-red">$'.$row['price'].'</b>
 																<p class="product-txt m-t-lg-10">'.$row['description'].'</p>
 																<ul class="static-caption m-t-lg-20">
 																	<li><i class="fa fa-clock-o"></i>'.$row3['car_model'].'</li>
