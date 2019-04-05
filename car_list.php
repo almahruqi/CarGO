@@ -91,7 +91,7 @@ include 'include/connect.php';//make sure you have folder include!
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LogIn/ Register </a>
 															<ul class="dropdown-menu">
 
-																<li><a href="logig.php">Login </a></li>
+																<li><a href="login.php">Login </a></li>
 																<li><a href="register.php">Register</a></li>
 															</ul>
 														</li>
