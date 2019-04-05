@@ -27,7 +27,7 @@ function make_slide_idicators($res2)
 {
   $count=0;
   $output = '<div class="product-img-lg bg-Blue-f5 bg1-gray-15">
-    <div class="image-zoom row m-t-lg-5 m-l-lg-ab-5 m-r-lg-ab-5">">';
+    <div class="image-zoom row m-t-lg-5 m-l-lg-ab-5 m-r-lg-ab-5">';
   while ($row2=mysqli_fetch_array($res2))
   {
     if($count == 0)
