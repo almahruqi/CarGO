@@ -152,8 +152,8 @@ include 'header.php';
                                     <p class="help-block">Enter the state</p>
                               </fieldset>
 
-                                    <button type="submit" name="submit" class="btn btn-secondary">Submit Button</button>
-                                    <button type="reset" class="btn btn-secondary">Reset Button</button>
+                                    <button type="submit" name="submit" class="btn btn-primary ">Submit</button>
+                                    <button type="reset" class="btn btn-danger">Reset</button>
                                     </form>
 
 
