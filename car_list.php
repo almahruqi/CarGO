@@ -78,7 +78,7 @@ include 'include/connect.php';//make sure you have folder include!
 												<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 													<ul class="nav navbar-nav">
 														<li class="dropdown">
-															<a href="index.php">Home</a>
+															<li><a href="index.php">Home</a></li>
 														</li>
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recent Car Listing</a>
@@ -116,7 +116,7 @@ include 'include/connect.php';//make sure you have folder include!
 							<div class="row">
 								<div class="col-lg-6">
 									<ul class="ht-breadcrumb pull-left">
-									<li class="home-act"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+									<li class="home-act"><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
 									<li class="home-act"><a href="car_list.php">Listing</a></li>
 									</ul>
 								</div>
