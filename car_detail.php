@@ -148,7 +148,7 @@ function make_slide_idicators($res2)
 
 														</li>
 														<li class="dropdown">
-															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LohIn/ Register</a>
+															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LogIn/ Register</a>
 															<ul class="dropdown-menu">
 
 																<li><a href="login.php">Login</a></li>
