@@ -2,11 +2,37 @@
 # CarGo Overview
 CarGo is a senior project for my computer science major. CarGo is classified advertisment website for cars.
 The website will have two type of users: Admin and User.
-## Features
-will be added soon.
+## Features:
+## Admin Features:
+1. View All users.
+2. View All Advertisements.
+3. View Any Advertisement.
+4. Edit Any Advertisement.
+5. Add images to Any Advertisement.
+6. Delete Any Advertisement.
+7. Approve Advertisements.
+## User Features:
+1. login to the dashboard.
+2. Create Advertisement.
+3. Edit their Advertisement.
+4. add images to Advertisement.
+5. View their Advertisements.
+6. Check their Advertisement status.
+7. View their information.
+8. Edit their information.
+## Other Features:
+1. Guest can Register in the website.
+2. Rest password:
+User can rest their password, and they will get unique link vaild for one use and only 24hours in their email.
+3.Advertisement status:
+Any advertidsement added/edited by the user will be "Pending" and only admin can approve them.
+4. View recent advertidsements added in the website.
+5. Search for any advertidsements by keyword.
+6. View only approved advertidsements.
 ## Status of the project
-The project is still under development. 
-The due date is May2019.
+Done.
+## Live Demo
+http://cargo.x10host.com
 ## License
 MIT License
 
