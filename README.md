@@ -3,7 +3,7 @@
 CarGo is a senior project for my computer science major. CarGo is classified advertisment website for cars.
 The website will have two type of users: Admin and User.
 ## Features:
-## Admin Features:
+### Admin Features:
 1. View All users.
 2. View All Advertisements.
 3. View Any Advertisement.
@@ -11,7 +11,7 @@ The website will have two type of users: Admin and User.
 5. Add images to Any Advertisement.
 6. Delete Any Advertisement.
 7. Approve Advertisements.
-## User Features:
+### User Features:
 1. login to the dashboard.
 2. Create Advertisement.
 3. Edit their Advertisement.
@@ -20,7 +20,7 @@ The website will have two type of users: Admin and User.
 6. Check their Advertisement status.
 7. View their information.
 8. Edit their information.
-## Other Features:
+### Other Features:
 1. Guest can Register in the website.
 2. Rest password:
 User can rest their password, and they will get unique link vaild for one use and only 24hours in their email.
