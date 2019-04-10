@@ -18,16 +18,15 @@ if ($name !='' && $surename !='' && $email !='' && $hashed_password !='')
       <div id="myAlert" class="alert alert-danger font-weight-bold text-center">
           <a href="#" class="close" data-dismiss="alert">&times;</a>
           <strong>Error!</strong> The Email Address Already exist!
-          <a href="login.php">Click here to Login</a>
+          <a href="Login.php">Click here to Login</a>
       </div>
     ';
   }
   else{
-    echo 'k';
-  // $query = "INSERT INTO user (name, surename, email, password)
-  //       VALUES('$name', '$surename', '$email', '$hashed_password')";
-  // mysqli_query($con, $query);
-  // header('Location: login.php');
+  $query = "INSERT INTO user (name, surename, email, password)
+        VALUES('$name', '$surename', '$email', '$hashed_password')";
+  mysqli_query($con, $query);
+  header('Location: login.php');
 }
 } else {
   echo "Please fill in all fields";
