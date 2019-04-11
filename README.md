@@ -29,6 +29,7 @@ Any advertidsement added/edited by the user will be "Pending" and only admin can
 4. View recent advertidsements added in the website.
 5. Search for any advertidsements by keyword.
 6. View only approved advertidsements.
+7.If the user edit their advertidsement or upload images, the status of the advertidsement will change to "Pending" automatically!
 ## Status of the project
 Done.
 ## Live Demo
