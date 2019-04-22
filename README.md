@@ -21,15 +21,7 @@ The website will have two type of users: Admin and User.
 7. View their information.
 8. Edit their information.
 ### Other Features:
-1. Guest can Register in the website.
-2. Rest password:
-User can rest their password, and they will get unique link vaild for one use and only 24hours in their email.
-3.Advertisement status:
-Any advertidsement added/edited by the user will be "Pending" and only admin can approve them.
-4. View recent advertidsements added in the website.
-5. Search for any advertidsements by keyword.
-6. View only approved advertidsements.
-7.If the user edit their advertidsement or upload images, the status of the advertidsement will change to "Pending" automatically!
+
 ## Status of the project
 Done.
 ## Live Demo
