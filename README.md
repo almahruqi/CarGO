@@ -33,7 +33,7 @@ The website will have two type of users: Admin and User.
 ## Status of the project
 Done.
 ## Live Demo
-http://cargo.x10host.com
+http://tiny.cc/cargotest
 ## License
 MIT License
 
