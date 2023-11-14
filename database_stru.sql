@@ -1,18 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Feb 24, 2019 at 06:34 AM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 14, 2023 at 09:05 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Database: `classified`
+-- Database: `cargo`
 --
+CREATE DATABASE IF NOT EXISTS `cargo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `cargo`;
 
 -- --------------------------------------------------------
 
@@ -20,24 +23,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `address`
 --
 
+DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
   `addrsss_id` int(11) NOT NULL,
   `city` varchar(35) NOT NULL,
   `state` varchar(35) NOT NULL,
   `ad_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `address`
---
-
-INSERT INTO `address` (`addrsss_id`, `city`, `state`, `ad_id`, `user_id`) VALUES
-(3, 'long beach', 'CA', 3, 1),
-(8, 'long beach', 'CA', 8, 1),
-(9, 'long beach', 'CA', 9, 1),
-(10, 'long beach', 'CA', 10, 1),
-(11, 'long beach', 'CA', 11, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,25 +38,16 @@ INSERT INTO `address` (`addrsss_id`, `city`, `state`, `ad_id`, `user_id`) VALUES
 -- Table structure for table `ads`
 --
 
+DROP TABLE IF EXISTS `ads`;
 CREATE TABLE `ads` (
   `ad_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `description` varchar(350) NOT NULL,
   `price` decimal(7,0) NOT NULL,
-  `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `ads`
---
-
-INSERT INTO `ads` (`ad_id`, `user_id`, `name`, `description`, `price`, `date`) VALUES
-(3, 1, 'tester', 'tttt', '100', '2019-02-23 00:14:23'),
-(8, 1, 'Tester', 'Test', '10000', '2019-02-23 07:32:51'),
-(9, 1, 'Tester', 'Test', '111', '2019-02-23 07:34:26'),
-(10, 1, 'Tester', 'Test', '1000', '2019-02-23 07:36:25'),
-(11, 1, 'Tester', 'Test', '11', '2019-02-23 07:37:05');
+  `date` datetime NOT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -71,6 +55,7 @@ INSERT INTO `ads` (`ad_id`, `user_id`, `name`, `description`, `price`, `date`) V
 -- Table structure for table `cars`
 --
 
+DROP TABLE IF EXISTS `cars`;
 CREATE TABLE `cars` (
   `car_Id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -78,18 +63,7 @@ CREATE TABLE `cars` (
   `car_model` varchar(35) NOT NULL,
   `car_mileage` int(11) NOT NULL,
   `ad_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `cars`
---
-
-INSERT INTO `cars` (`car_Id`, `user_id`, `car_make`, `car_model`, `car_mileage`, `ad_id`) VALUES
-(8, 1, 'Test', 'gg', 100, 3),
-(13, 1, 'gggg', 'gg', 1000, 8),
-(14, 1, 'gg', 'gg', 111, 9),
-(15, 1, 'gg', 'gg', 100, 10),
-(16, 1, 'ggg', 'gg', 111, 11);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -97,11 +71,27 @@ INSERT INTO `cars` (`car_Id`, `user_id`, `car_make`, `car_model`, `car_mileage`,
 -- Table structure for table `images`
 --
 
+DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
   `id` int(11) NOT NULL,
   `ad_id` int(11) NOT NULL,
   `imge_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upload_img`
+--
+
+DROP TABLE IF EXISTS `upload_img`;
+CREATE TABLE `upload_img` (
+  `img_id` int(11) NOT NULL,
+  `ad_id` int(11) NOT NULL,
+  `img_name` varchar(255) NOT NULL,
+  `img_path` varchar(255) DEFAULT NULL,
+  `img_type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -109,6 +99,7 @@ CREATE TABLE `images` (
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
@@ -116,17 +107,7 @@ CREATE TABLE `user` (
   `email` varchar(30) NOT NULL,
   `password` varchar(75) NOT NULL,
   `role` varchar(5) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `surename`, `email`, `password`, `role`) VALUES
-(1, 'Demo', 'Hello World', 'Demo@de.com', '123', 'admin'),
-(2, 'Tester', 'Al Test', 'al4@hotmail.com', '123', 'user'),
-(5, 'Said Alhinai', 'Crash', 'said-alhinai1@hotmail.com', '123456', 'admin'),
-(7, 'shathan', 'alhinai', 'rm05@hotmail.com', '123456789', 'user');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -160,6 +141,13 @@ ALTER TABLE `images`
   ADD KEY `images_ibfk_1` (`ad_id`);
 
 --
+-- Indexes for table `upload_img`
+--
+ALTER TABLE `upload_img`
+  ADD PRIMARY KEY (`img_id`),
+  ADD KEY `ad_id` (`ad_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -173,25 +161,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `addrsss_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `addrsss_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `car_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `car_Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `upload_img`
+--
+ALTER TABLE `upload_img`
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -214,3 +208,10 @@ ALTER TABLE `cars`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `ads` (`ad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `upload_img`
+--
+ALTER TABLE `upload_img`
+  ADD CONSTRAINT `upload_img_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `ads` (`ad_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;

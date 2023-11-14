@@ -115,7 +115,7 @@ if ($id != '') {
     $sql1 = 'SELECT status FROM ads WHERE ad_id ='.$id.'';
     $resR= mysqli_query($con, $sql1);
     $rowR= mysqli_fetch_assoc($resR);
-    if ($rowR[status]=='approved') {
+    if ($rowR['status']=='approved') {
     $sqlR='UPDATE ads SET status="pending" WHERE ad_id="'.$id.'"';
     mysqli_query($con, $sqlR);
       }

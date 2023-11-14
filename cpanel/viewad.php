@@ -91,7 +91,7 @@ include 'header.php';
 
                   ';
                   while ($row =mysqli_fetch_assoc($res)) {
-
+                    
                     $Editbutton = '<a href="edit.php?id='.$row['ad_id'].'"  class="btn btn-secondary"><span></span> Edit</a>';
                     echo '
                     <h2>'.$row['name'].'</h2>
@@ -144,7 +144,7 @@ include 'header.php';
 									<tbody>
                   <td>
                   <a href="adsdelete.php?id='.$row['ad_id'].'"  class="btn btn-danger"><span></span> Delete</a>
-                  '.$Abutton.' '.$Editbutton.'
+                  '.$Editbutton.'
                   </td>
 							</div>
               <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">

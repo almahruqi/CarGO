@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>Ads Cpanel</title>
 
-  <!-- Custom fonts for this template-->
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  
+
+  <!-- Custom fonts for this template -->
   <link href="../assets/fonts/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 
-
-  <!-- Page level plugin CSS-->
+  <!-- Page level plugin CSS -->
   <link href="../assets/css/dataTables.bootstrap4.css" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="../assets/DataTables/DataTables1/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="../assets/DataTables/datatables.css">
-  <script type="text/javascript" charset="utf8" src="../assets/DataTables/datatables.js"></script>
-
-
+  <!-- DataTables CSS and JS -->
+  <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
 <body id="page-top">
